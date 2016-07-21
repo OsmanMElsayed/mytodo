@@ -5,6 +5,7 @@ a due date/time and a category. *mytodo* also shows how many tasks per category 
 # Get Up & Running
 Getting the app up & running is a piece of cake. All u need is to make sure you have the following installed:
 1. NodeJS
+
 2. Gulp
 
 When the solution is opened using *Visual Studio 2015*, VS will recognize the `package.json` file & will restore the node modules.
@@ -15,8 +16,13 @@ http://localhost:3000
 
 # Dependencies
 *mytodo* is built on top of the following frameworks/libraries:
+
 1. React.js
+
 2. d3.js
+
 3. linq.js
+
 4. moment.js
+
 5. Twitter Bootstrap
