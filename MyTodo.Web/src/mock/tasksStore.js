@@ -2,89 +2,73 @@
 
 var React = require('react');
 var moment = require('moment');
-var Enumerable = require('../linq');
+var Enumerable = require('linq');
 
-function TasksMock() {
+function TasksStore() {
 
     var self = this;
 
+    var homeTasks = {
+        id: 1,
+        color: 'red',
+        name: 'Home'
+    };
+    var workTasks = {
+        id: 2,
+        color: 'blue',
+        name: 'Work'
+    };
+    var firendsTasks = {
+        id: 3,
+        color: 'orange',
+        name: 'Friends'
+    };
+
     this._tasks = [
         {
-            category: {
-                id: 1,
-                color: 'red',
-                name: 'Home'
-            },
+            category: homeTasks,
             title: 'Buy bed sheets',
             dueDate: moment('2016-7-23'),
             reminderDate: moment('2016-7-21 12:20')
         },
         {
-            category: {
-                id: 2,
-                color: 'blue',
-                name: 'Work'
-            },
+            category: workTasks,
             title: 'Present react.js',
             dueDate: moment('2016-7-23'),
             reminderDate: moment('2016-7-22 8:30')
         },
         {
-            category: {
-                id: 1,
-                color: 'red',
-                name: 'Home'
-            },
+            category: homeTasks,
             title: 'Water the plants',
             dueDate: moment('2016-7-23'),
             reminderDate: moment('2016-7-22 9:00')
         },
         {
-            category: {
-                id: 3,
-                color: 'orange',
-                name: 'Friends'
-            },
+            category: firendsTasks,
             title: 'chill out',
             dueDate: moment('2016-7-23'),
             reminderDate: moment('2016-7-22 22:00')
         },
         {
-            category: {
-                id: 1,
-                color: 'red',
-                name: 'Home'
-            },
+            category: homeTasks,
             title: 'Buy bed sheets',
             dueDate: moment('2016-7-22'),
             reminderDate: moment('2016-7-21 12:20')
         },
         {
-            category: {
-                id: 2,
-                color: 'blue',
-                name: 'Work'
-            },
+            category: workTasks,
             title: 'Present react.js',
             dueDate: moment('2016-7-22'),
             reminderDate: moment('2016-7-20 8:30')
         },
         {
-            category: {
-                id: 1,
-                color: 'red',
-                name: 'Home'
-            },
+            category: homeTasks,
             title: 'Water the plants',
             dueDate: moment('2016-7-22'),
             reminderDate: moment('2016-7-20 9:00')
         },
         {
-            category: {
-                id: 3,
-                color: 'orange',
-                name: 'Friends'
-            },
+            category: firendsTasks,
             title: 'chill out',
             dueDate: moment('2016-7-22'),
             reminderDate: moment('2016-7-20 22:00')
@@ -100,19 +84,25 @@ function TasksMock() {
 
     this.getTaskGroups = function () {
         console.log('Get Task Groups');
-        var taskGroups = Enumerable.from(self._tasks).groupBy(function (task) { return task.dueDate; });
+        var taskGroups = Enumerable.from(self._tasks).groupBy(function (task) { 
+            return task.dueDate.format('YYYY-M-D');
+        }, null, function (key, group) {
+            return { dueDate: moment(key), tasks: group.toArray() };
+        }).toArray();
         console.log(taskGroups);
 
         return taskGroups;
     }
 
-    this.getCurrentWeekDueTasks = function () {
-        console.log('Due Tasks');
-        var dueTasks = Enumerable.from(self._tasks).where(function (task) { return task.dueDate < moment().add(7, 'days'); }).groupBy(function (task) { return category });
-        console.log(dueTasks);
+    this.getCurrentWeekSummary = function () {
+        var dueTasksByCategory = Enumerable.from(self._tasks).where(function (task) {
+            return task.dueDate.isBefore(moment().add(8, 'days'));
+        }).groupBy(function (task) { return task.category }, null, function (key, group) {
+            return { category: key, tasksCount: group.toArray().length };
+        }).toArray();
 
-        return dueTasks;
+        return dueTasksByCategory;
     }
 };
 
-module.exports = new TasksMock();
+module.exports = new TasksStore();

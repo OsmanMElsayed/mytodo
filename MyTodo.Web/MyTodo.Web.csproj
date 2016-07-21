@@ -42,13 +42,8 @@
     <Content Include="src\assets\robots.txt" />
     <Content Include="src\assets\tile-wide.png" />
     <Content Include="src\assets\tile.png" />
-    <Content Include="src\components\CurrentDate.jsx" />
-    <Content Include="src\components\Navbar.jsx" />
-    <Content Include="src\components\NavbarSpec.jsx" />
-    <Content Include="src\images\logo-small.png" />
-    <Content Include="src\images\logo-small%402x.png" />
     <Content Include="src\layouts\Default.jsx" />
-    <Content Include="src\mock\tasksMock.js" />
+    <Content Include="src\mock\tasksStore.js" />
     <Content Include="src\pages\404.html" />
     <Content Include="src\pages\Home.jsx" />
     <Content Include="src\pages\index.html" />
@@ -56,11 +51,6 @@
     <Content Include="src\styles\.csscomb.json" />
     <Content Include="src\styles\.csslintrc" />
     <Content Include="src\styles\bootstrap.less" />
-    <Content Include="src\styles\jumbotron.less" />
-    <Content Include="src\styles\mixins.less" />
-    <Content Include="src\styles\MyTodo.less" />
-    <Content Include="src\styles\navbar.less" />
-    <Content Include="src\styles\utilities.less" />
     <Content Include="src\styles\variables.less" />
     <Content Include=".editorconfig" />
     <Content Include=".jshintrc" />
@@ -69,6 +59,7 @@
     <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="src\images\" />
     <Folder Include="test\" />
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +78,7 @@
     <Content Include="src\components\Task.jsx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="src\components\PieChart.jsx" />
+    <Content Include="src\components\DonutChart.jsx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

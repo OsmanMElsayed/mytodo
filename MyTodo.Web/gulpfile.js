@@ -55,12 +55,8 @@ gulp.task('clean', del.bind(null, [DEST]));
 
 // 3rd party libraries
 gulp.task('vendor', function () {
-  return merge(
-    gulp.src('./node_modules/jquery/dist/**')
-      .pipe(gulp.dest(DEST + '/vendor/jquery-' + pkgs.jquery)),
     gulp.src('./node_modules/bootstrap/dist/fonts/**')
-      .pipe(gulp.dest(DEST + '/fonts'))
-  );
+      .pipe(gulp.dest(DEST + '/fonts'));
 });
 
 // Static files
@@ -70,19 +66,6 @@ gulp.task('assets', function () {
     .pipe($.changed(DEST))
     .pipe(gulp.dest(DEST))
     .pipe($.size({title: 'assets'}));
-});
-
-// Images
-gulp.task('images', function () {
-  src.images = 'src/images/**';
-  return gulp.src(src.images)
-    .pipe($.changed(DEST + '/images'))
-    .pipe($.cache($.imagemin({
-      progressive: true,
-      interlaced: true
-    })))
-    .pipe(gulp.dest(DEST + '/images'))
-    .pipe($.size({title: 'images'}));
 });
 
 // HTML pages

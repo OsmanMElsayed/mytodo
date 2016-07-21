@@ -7,25 +7,24 @@
 var React = require('react');
 var CurrentDate = require('../components/CurrentDate.jsx');
 var TasksContainer = require('../components/TasksContainer.jsx');
-var PieChart = require('../components/PieChart.jsx');
-var tasksMock = require('../mock/tasksMock.js');
+//var CurrentWeekSummary = require('../components/CurrentWeekSummary.jsx');
+var tasksStore = require('../mock/tasksStore.js');
 
 var HomePage = React.createClass({
 
     getInitialState: function () {
-        return { taskGroups: tasksMock.getTaskGroups(), dueTasks: tasksMock.getCurrentWeekDueTasks() };
+        return { taskGroups: tasksStore.getTaskGroups(), currentWeekSummary: tasksStore.getCurrentWeekSummary() };
     },
 
     render() {
       return (
         <div className="container">
             <div className="row">
-                <div className="col-md-offset-1 col-md-4">
+                <div className="col-md-offset-1 col-md-5">
                     <CurrentDate />
                     <TasksContainer taskGroups={this.state.taskGroups} />
                 </div>
                 <div className="col-md-5">
-                    <PieChart dueTasks={this.state.dueTasks} />
                 </div>
             </div>
         </div>

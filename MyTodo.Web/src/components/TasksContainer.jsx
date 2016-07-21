@@ -10,7 +10,7 @@ var TasksGroup = require('../components/TasksGroup.jsx');
 var TasksContainer = React.createClass({
 
     render() {
-
+        console.log(this.props.taskGroups);
         var taskGroups = this.props.taskGroups.map(function (tasksGroup) {
             return <TasksGroup tasksGroup={tasksGroup} />;
         });
