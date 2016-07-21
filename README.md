@@ -4,6 +4,7 @@ a due date/time and a category. *mytodo* also shows how many tasks per category 
 
 # Get Up & Running
 Getting the app up & running is a piece of cake. All u need is to make sure you have the following installed:
+
 1. NodeJS
 
 2. Gulp
