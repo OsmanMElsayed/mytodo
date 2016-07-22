@@ -89,7 +89,6 @@ function TasksStore() {
         }, null, function (key, group) {
             return { dueDate: moment(key), tasks: group.toArray() };
         }).toArray();
-        console.log(taskGroups);
 
         return taskGroups;
     }
@@ -98,10 +97,16 @@ function TasksStore() {
         var dueTasksByCategory = Enumerable.from(self._tasks).where(function (task) {
             return task.dueDate.isBefore(moment().add(8, 'days'));
         }).groupBy(function (task) { return task.category }, null, function (key, group) {
-            return { category: key, tasksCount: group.toArray().length };
+            return { category: key, value: group.toArray().length };
         }).toArray();
 
-        return dueTasksByCategory;
+        return { 
+            data: dueTasksByCategory, 
+            total: Enumerable.from(dueTasksByCategory).sum(function (dueTasksByCategoryItem) { 
+                return dueTasksByCategoryItem.value;
+            }),
+            unit: ''
+        };
     }
 };
 

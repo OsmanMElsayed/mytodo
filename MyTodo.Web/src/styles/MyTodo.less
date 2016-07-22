@@ -78,22 +78,10 @@ body {
 }
 
 .tasks-container {
-    .panel-tasks-group {
-        position: relative;
+
+    .panel-mytodo {
 
         .panel-heading {
-            background-color: #EEEEEE;
-            border-bottom: none;
-
-            &:after {
-                content: ' ';
-                position: absolute;
-                left: 45%;
-                top: 40px;
-                border-style: solid;
-                border-width: 8px 8px 0 8px;
-                border-color: #EEEEEE transparent transparent transparent;
-            }
 
             .day-of-week {
                 width: 50%;
@@ -108,7 +96,6 @@ body {
         }
 
         .panel-body {
-            padding: 10px 0 0 0;
 
             .tasks {
                 list-style: none;
@@ -145,6 +132,29 @@ body {
                 }
             }
         }
+    }
+}
+
+.panel-mytodo {
+    position: relative;
+
+    .panel-heading {
+        background-color: #EEEEEE;
+        border-bottom: none;
+
+        &:after {
+            content: ' ';
+            position: absolute;
+            left: 45%;
+            top: 40px;
+            border-style: solid;
+            border-width: 8px 8px 0 8px;
+            border-color: #EEEEEE transparent transparent transparent;
+        }
+    }
+
+    .panel-body {
+        padding: 10px 0 0 0;
     }
 }
 

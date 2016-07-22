@@ -127,7 +127,7 @@ gulp.task('bundle', function (cb) {
 
 // Build the app from source code
 gulp.task('build', ['clean'], function (cb) {
-  runSequence(['vendor', 'assets', 'images', 'pages', 'styles', 'bundle'], cb);
+  runSequence(['vendor', 'assets', 'pages', 'styles', 'bundle'], cb);
 });
 
 // Launch a lightweight HTTP Server
@@ -148,7 +148,6 @@ gulp.task('serve', function (cb) {
     });
 
     gulp.watch(src.assets, ['assets']);
-    gulp.watch(src.images, ['images']);
     gulp.watch(src.pages, ['pages']);
     gulp.watch(src.styles, ['styles']);
     gulp.watch(DEST + '/**/*.*', function (file) {

@@ -7,7 +7,7 @@
 var React = require('react');
 var CurrentDate = require('../components/CurrentDate.jsx');
 var TasksContainer = require('../components/TasksContainer.jsx');
-//var CurrentWeekSummary = require('../components/CurrentWeekSummary.jsx');
+var CurrentWeekSummaryChart = require('../components/CurrentWeekSummaryChart.jsx');
 var tasksStore = require('../mock/tasksStore.js');
 
 var HomePage = React.createClass({
@@ -24,7 +24,8 @@ var HomePage = React.createClass({
                     <CurrentDate />
                     <TasksContainer taskGroups={this.state.taskGroups} />
                 </div>
-                <div className="col-md-5">
+                <div className="col-md-4">
+                    <CurrentWeekSummaryChart data={this.state.currentWeekSummary} />
                 </div>
             </div>
         </div>

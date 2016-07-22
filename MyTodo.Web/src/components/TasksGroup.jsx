@@ -16,7 +16,7 @@ var TasksGroup = React.createClass({
         });
 
         return (
-               <div className="panel panel-default panel-tasks-group">
+               <div className="panel panel-default panel-mytodo">
                    <div className="panel-heading">
                        <div className="day-of-week">
                            <strong>{this.props.tasksGroup.dueDate.format('dddd')}</strong>
