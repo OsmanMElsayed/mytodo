@@ -1,13 +1,3 @@
-/*!
- * Facebook React Starter Kit | https://github.com/kriasoft/react-starter-kit
- * Copyright (c) KriaSoft, LLC. All rights reserved. See LICENSE.txt
- */
-
-/*
- * Webpack configuration. For more information visit
- * http://webpack.github.io/docs/configuration
- */
-
 'use strict';
 
 var webpack = require('webpack');
@@ -43,38 +33,31 @@ module.exports = function (release) {
     },
 
     module: {
-      preLoaders: [
-        {
-          test: /\.js$/,
-          exclude: /node_modules/,
-          loader: 'jshint'
-        }
-      ],
-
       loaders: [
         {
-          test: /\.css$/,
-          loader: 'style!css'
+            test: /\.jsx$/,
+            exclude: /node_modules/,
+            loader: "babel-loader"
         },
         {
-          test: /\.less$/,
-          loader: 'style!css!less'
+            test: /\.css$/,
+            loader: 'style!css'
         },
         {
-          test: /\.gif/,
-          loader: 'url-loader?limit=10000&mimetype=image/gif'
+            test: /\.less$/,
+            loader: 'style!css!less'
         },
         {
-          test: /\.jpg/,
-          loader: 'url-loader?limit=10000&mimetype=image/jpg'
+            test: /\.gif/,
+            loader: 'url-loader?limit=10000&mimetype=image/gif'
         },
         {
-          test: /\.png/,
-          loader: 'url-loader?limit=10000&mimetype=image/png'
+            test: /\.jpg/,
+            loader: 'url-loader?limit=10000&mimetype=image/jpg'
         },
         {
-          test: /\.jsx$/,
-          loader: 'jsx-loader?harmony'
+            test: /\.png/,
+            loader: 'url-loader?limit=10000&mimetype=image/png'
         }
       ]
     }

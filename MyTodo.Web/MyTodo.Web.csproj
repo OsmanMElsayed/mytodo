@@ -31,37 +31,23 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include="build\**\*.*" />
-    <Content Include="config\**\*.*" />
+    <Content Include="config\webpack.js" />
     <Content Include="docs\**\*.*" />
     <Content Include="src\App.jsx" />
-    <Content Include="src\assets\apple-touch-icon-precomposed.png" />
-    <Content Include="src\assets\browserconfig.xml" />
-    <Content Include="src\assets\crossdomain.xml" />
-    <Content Include="src\assets\favicon.ico" />
-    <Content Include="src\assets\humans.txt" />
-    <Content Include="src\assets\robots.txt" />
-    <Content Include="src\assets\tile-wide.png" />
-    <Content Include="src\assets\tile.png" />
     <Content Include="src\charts\DonutChart.js" />
     <Content Include="src\layouts\Default.jsx" />
-    <Content Include="src\mock\tasksStore.js" />
-    <Content Include="src\pages\404.html" />
+    <Content Include="src\stores\tasksStore.js" />
     <Content Include="src\pages\Home.jsx" />
-    <Content Include="src\pages\index.html" />
+    <Content Include="src\index.html" />
     <Content Include="src\pages\Privacy.jsx" />
-    <Content Include="src\styles\.csscomb.json" />
-    <Content Include="src\styles\.csslintrc" />
     <Content Include="src\styles\bootstrap.less" />
     <Content Include="src\styles\variables.less" />
-    <Content Include=".editorconfig" />
-    <Content Include=".jshintrc" />
     <Content Include="gulpfile.js" />
     <Content Include="package.json" />
-    <Content Include="README.txt" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\images\" />
-    <Folder Include="test\" />
+    <Folder Include="__tests__\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\components\CurrentDate.jsx" />
@@ -80,6 +66,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="src\components\CurrentWeekSummaryChart.jsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\components\FloatingActionButton.jsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="src\pages\AddTask.jsx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include=".babelrc" />
+    <Content Include="src\components\TextInput.jsx" />
+    <Content Include="src\components\SelectInput.jsx" />
+    <Content Include="src\components\DateTimeInput.jsx" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

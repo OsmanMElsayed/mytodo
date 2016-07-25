@@ -1,7 +1,3 @@
-/**
- * @jsx React.DOM
- */
-
 'use strict';
 
 var React = require('react');
@@ -16,7 +12,7 @@ var Task = React.createClass({
             <li className="task">
                 <span style={taskIndicatorStyle} className="task-color" title={this.props.task.category.name}></span>
                 <span className="task-title">
-                    {this.props.task.title}
+                    {this.props.task.description}
                 </span>
             </li>
         );

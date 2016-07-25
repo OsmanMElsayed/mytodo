@@ -1,21 +1,18 @@
-/**
- * @jsx React.DOM
- */
-
 'use strict';
 
 var React = require('react');
-var {Routes, Route} = require('react-router');
+var ReactDOM = require('react-dom');
+var { Router, Route, IndexRoute, browserHistory } = require('react-router');
+var DefaultLayout = require('./layouts/Default.jsx');
+var Home = require('./pages/Home.jsx');
+var AddTask = require('./pages/AddTask.jsx');
 
-// Export React so the dev tools can find it
-(window !== window.top ? window.top : window).React = React;
-
-React.renderComponent(
-  <Routes location="history">
-    <Route name="app" path="/" handler={require('./layouts/Default.jsx')}>
-      <Route name="home" path="/" handler={require('./pages/Home.jsx')} />
-      <Route name="privacy" handler={require('./pages/Privacy.jsx')} />
-    </Route>
-  </Routes>,
+ReactDOM.render(
+    <Router history={browserHistory}>
+        <Route path="/" component={DefaultLayout}>
+            <IndexRoute component={Home} />
+            <Route path="tasks/add" component={AddTask} />
+        </Route>
+    </Router>,
   document.body
 );
